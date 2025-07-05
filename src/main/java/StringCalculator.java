@@ -1,3 +1,5 @@
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 
     public int add(String input) {
@@ -9,7 +11,8 @@ public class StringCalculator {
 
         if(input.startsWith("//")) {
             int delimiterEndIndex = input.indexOf('\n');
-            delimiter = input.substring(2, delimiterEndIndex);
+            String customDelimiter = input.substring(2, delimiterEndIndex);
+            delimiter = Pattern.quote(customDelimiter);
             input = input.substring(delimiterEndIndex + 1);
         }
         String[] parts = input.split(delimiter);
