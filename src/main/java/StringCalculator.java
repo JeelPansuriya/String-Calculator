@@ -30,7 +30,7 @@ public class StringCalculator {
             }
         }
         if(!NegativeNumbers.isEmpty()) {
-            throw new IllegalArgumentException( "negative numbers not allowed: " + NegativeNumbers.toString().replaceAll("[\\[\\]]", ""));
+            throw new IllegalArgumentException( "negative numbers not allowed: " + NegativeNumbers.toString().replaceAll("[\\[\\] ]",""));
         }
         return sum;
     }
