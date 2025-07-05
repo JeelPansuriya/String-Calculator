@@ -34,4 +34,10 @@ public class StringCalculatorTest {
         assertEquals(60, new StringCalculator().add("10,20,30"));
     }
 
+    @Test
+    public void testDelimiterNewLine() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
+
 }
