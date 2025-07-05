@@ -9,14 +9,21 @@ public class StringCalculator {
         if (input == null || input.isEmpty()) {
             return 0;
         }
-        String delimiter = "[,\n]";
+        String delimiter = ",|\n";
         if(input.startsWith("//")) {
             int delimiterEndIndex = input.indexOf('\n');
             String customDelimiter = input.substring(2, delimiterEndIndex);
-           if (customDelimiter.startsWith("[") && customDelimiter.endsWith("]")) {
-                customDelimiter = customDelimiter.substring(1, customDelimiter.length() - 1);
+            if (customDelimiter.startsWith("[") && customDelimiter.endsWith("]")) {
+                String[] delimiters = customDelimiter.substring(1, customDelimiter.length() - 1).split("\\]\\[");
+                StringBuilder regex = new StringBuilder();
+                for (int i = 0; i < delimiters.length; i++) {
+                    if (i > 0) regex.append("|");
+                    regex.append(Pattern.quote(delimiters[i]));
+                }
+                delimiter = regex.toString();
+            } else {
+                delimiter = Pattern.quote(customDelimiter);
             }
-            delimiter = Pattern.quote(customDelimiter);
             input = input.substring(delimiterEndIndex + 1);
         }
 
