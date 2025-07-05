@@ -44,6 +44,8 @@ public class StringCalculatorTest {
     public void testCustomDelimiterSemicolon() {
         StringCalculator calculator = new StringCalculator();
         assertEquals(3, calculator.add("//;\n1;2"));
+        assertEquals(6, new StringCalculator().add("//|\n1|2|3"));
+        assertEquals(9, new StringCalculator().add("//.\n2.3.4"));
     }
 
 
