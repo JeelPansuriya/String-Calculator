@@ -66,4 +66,10 @@ public class StringCalculatorTest {
         assertEquals(1003, calculator.add("1000,3"));
         assertEquals(5, calculator.add("//:\n1001:2:3"));
     }
+
+    @Test
+    public void testLongCustomDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("//[***]\n1***2***3"));
+    }
 }
