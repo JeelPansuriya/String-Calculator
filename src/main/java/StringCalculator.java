@@ -25,7 +25,7 @@ public class StringCalculator {
             if(number < 0) {
                 NegativeNumbers.add(number);
             }
-            else {
+            else if(number <= 1000){
                 sum += number;
             }
         }
